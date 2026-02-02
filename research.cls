@@ -60,6 +60,11 @@
 \RequirePackage[round,authoryear]{natbib}
 \def\bibfont{\small}
 
+% Swap \cite and \citet
+\let\oldcite\cite
+\let\cite\citep
+\let\citet\oldcite
+
 % Section and caption format %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{titlesec}

@@ -68,7 +68,7 @@
 % Section and caption format %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{titlesec}
-\titleformat*{\paragraph}{\itshape}
+\titleformat*{\paragraph}{\bfseries}
 \titleformat*{\section}{\Large\sffamily\bfseries}
 \titleformat*{\subsection}{\large\sffamily\bfseries}
 \titleformat*{\subsubsection}{\normalsize\sffamily\bfseries}

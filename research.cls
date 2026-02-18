@@ -44,7 +44,7 @@
 \RequirePackage{xcolor}
 \definecolor{linkcolor}{HTML}{0064E0}
 \definecolor{foregroundcolor}{HTML}{1C2B33}
-\definecolor{backgroundcolor}{HTML}{BFECC4}
+\definecolor{backgroundcolor}{HTML}{DDDDFF}
 
 % References %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

@@ -45,6 +45,7 @@
 \definecolor{linkcolor}{HTML}{0064E0}
 \definecolor{foregroundcolor}{HTML}{1C2B33}
 \definecolor{backgroundcolor}{HTML}{DDDDFF}
+\newcommand{\sectioncolor}[1]{{\bfseries\color[HTML]{000000} #1}} 
 
 % References %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -68,10 +69,10 @@
 % Section and caption format %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage{titlesec}
-\titleformat*{\paragraph}{\bfseries}
-\titleformat*{\section}{\Large\sffamily\bfseries}
-\titleformat*{\subsection}{\large\sffamily\bfseries}
-\titleformat*{\subsubsection}{\normalsize\sffamily\bfseries}
+\titleformat*{\paragraph}{\bfseries\sectioncolor}
+\titleformat*{\section}{\Large\sffamily\bfseries\sectioncolor}
+\titleformat*{\subsection}{\large\sffamily\bfseries\sectioncolor}
+\titleformat*{\subsubsection}{\normalsize\sffamily\bfseries\sectioncolor}
 \DeclareTextFontCommand{\textbf}{\bfseries\sffamily}
 
 \RequirePackage{caption}
@@ -130,48 +131,52 @@
 
 \newcommand{\beginappendix}{\appendix{\huge\sffamily Appendix\par}}
 
+\newcommand{\@toptitlebar}{
+  {\color{linkcolor}\hrule height 0.5pt}
+  \vskip 6mm
+}
+\newcommand{\@bottomtitlebar}{
+  \vskip 6mm
+  {\color{linkcolor}\hrule height 0.5pt}
+}
+
 % Titlebox %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \newcommand{\mymaketitle}{%
-  \tcbset{enhanced,frame hidden}
-  \tcbset{left=0.5cm}
-  \tcbset{right=0.5cm}
-  \tcbset{top=0.5cm}
-  \tcbset{bottom=0.5cm}
-  \tcbset{arc=10pt}
-  \tcbset{colback=backgroundcolor}
+  {
+    \setlength{\parskip}{0mm}
+    \centering
+    \nohyphens
+    {
+      \@toptitlebar
+      \titlelist\par
+      \@bottomtitlebar
+    }
+    \vskip 6mm
+    \authorlist\par
+    \vskip 3mm
+    \affiliationlist\par
+    \vskip 3mm
+    \contributionlist\par
+  }
+  \vskip 6mm
+  \tcbset{enhanced}
+  \tcbset{left=8mm}
+  \tcbset{right=8mm}
+  \tcbset{top=6mm}
+  \tcbset{bottom=6mm}
+  % \tcbset{colback=backgroundcolor}
+  \tcbset{colback=white}
+  \tcbset{colframe=linkcolor}
+  \tcbset{boxrule=0.5pt}
   \tcbset{before skip=0pt}
   \tcbset{grow to left by=1.5pt}
   \tcbset{grow to right by=1.5pt}
-  % TODO Add learning-machine logo
-  % \tcbset{overlay={\node[
-  %   anchor=south east,
-  %   at= (frame.south east),
-  %   xshift=-0.5cm,
-  %   yshift=0.5cm] {\includegraphics[width=1.5cm]{assets/logometa.pdf}};}}
-  % 
+  \tcbset{arc=2.5mm}
   \begin{tcolorbox}
     \setlength{\parindent}{0cm}
     \setlength{\parskip}{0.5cm}
-    {
-      \setlength{\parskip}{0cm}
-      \raggedright
-      \nohyphens
-      %
-      {
-        \setstretch{1.618}
-        \titlelist\par
-      }
-      \vskip 0.2cm
-      %
-      \authorlist\par
-      \vskip 0.2cm
-      %
-      \affiliationlist\par
-      %
-      \contributionlist\par
-    }
     %
     \abstractlist\par
     %
